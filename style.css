@@ -1,0 +1,43 @@
+html, body, canvas {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    overflow: hidden;
+    user-select: none;
+}
+
+#winner {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 50px;
+    font-size: 40px;
+    font-family: monospace;
+}
+
+#play {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: calc(50% + 230px);
+    font-size: 30px;
+    font-family: monospace;
+    color: white;
+    background: #5677c2;
+    padding: 15px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#play:hover {
+    background: #4665af;
+}
+
+#play:active {
+    background: #244184;
+}
