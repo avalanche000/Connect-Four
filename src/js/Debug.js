@@ -7,7 +7,7 @@ let count = 0;
 const Debug = {
     log: (...args) => {
         if(isDebugOn) {
-            console.log(`DEBUG |`, ...args);
+            console.debug(...args);
             // count++;
         }
     },

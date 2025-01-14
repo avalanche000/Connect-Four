@@ -1,8 +1,8 @@
 "use strict";
 
 class Canvas {
-    constructor(canvasId) {
-        this.canvas = document.getElementById(canvasId);
+    constructor(id) {
+        this.canvas = document.getElementById(id);
         this.context = this.canvas.getContext('2d');
 
         this.canvas.width = window.innerWidth;

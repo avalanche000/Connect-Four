@@ -1,6 +1,6 @@
 "use strict";
 
-import Mouse from "./mouse.js";
+import Mouse from "./Mouse.js";
 
 function randomChoice(arr) {
     return arr[Math.floor(Math.random() * arr.length)];

@@ -109,7 +109,7 @@ class NeuralNetwork {
     }
 
     mutate(amount) {
-        this.layers.forEach(layer => layer.forEach(node => Math.random() < 0.6 && node.mutate(amount)));
+        this.layers.forEach(layer => layer.forEach(node => Math.random() < 0.2 && node.mutate(amount)));
     }
 }
 
@@ -143,13 +143,13 @@ const trainingData = [
     { inputs: [1, 1, 1], targets: [0] }
 ];
 
-let networks = Array.from({ length: 10000 }, () => new NeuralNetwork(3, 9, 1));
+let networks = Array.from({ length: 10000 }, () => new NeuralNetwork(3, 3, 1));
 
 document.getElementById("before").innerHTML = getData().reduce((accum, curr) => accum + curr.error, 0) / networks.length;
 
 let final;
 
-for (let epoch = 0; epoch < 1000; epoch++) {
+for (let epoch = 0; epoch < 2000; epoch++) {
     const data = getData();
 
     const totalError = data.reduce((accum, curr) => accum + curr.error, 0);
@@ -159,14 +159,14 @@ for (let epoch = 0; epoch < 1000; epoch++) {
 
     let i = 0;
     networks = Array.from({ length: 200 }, () => {
-        const best = data[Math.floor(Math.random() * 10)];
+        const best = data[Math.floor(Math.random() * 12)];
         const copy = best.network.copy();
 
         copy.mutate(i < 10 ? 10 : (best.error + averageError / 2));
 
         i++;
 
-        return i < 150 ? copy : new NeuralNetwork(...best.network.layerMap);
+        return i < 198 ? copy : new NeuralNetwork(...best.network.layerMap);
     });
 }
 
